@@ -30,10 +30,16 @@ export CONTRACTS_TARGET_NETWORK=local
 ./deployer.sh 
 ```
 
+- dtl
+
+```
+
+```
+
 - l2geth
 
 ```
-export ETH1_HTTP=http://127.0.0.1:8545
+export ETH1_HTTP=http://127.0.0.1:9545
 export ROLLUP_TIMESTAMP_REFRESH=5s
 export ROLLUP_STATE_DUMP_PATH=http://127.0.0.1:8081/state-dump.latest.json
 export ROLLUP_CLIENT_HTTP=http://127.0.0.1:7878
@@ -43,5 +49,8 @@ export BLOCK_SIGNER_ADDRESS=0x00000398232E2064F896018496b4b44b3D62751F
 export ROLLUP_ENFORCE_FEES=${ROLLUP_ENFORCE_FEES:-true}
 export ROLLUP_FEE_THRESHOLD_DOWN=0.9
 export ROLLUP_FEE_THRESHOLD_UP=1.1
+
+source geth.env
+
 ```
 
