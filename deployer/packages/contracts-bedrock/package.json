@@ -18,7 +18,7 @@
     "prebuild": "yarn ts-node scripts/verifyFoundryInstall.ts",
     "build": "hardhat compile && yarn build:ts && yarn typechain",
     "build:ts": "tsc -p tsconfig.json",
-    "deploy": "hardhat deploy",
+    "deploy": "hardhat deploy --network devnetL1",
     "test": "forge test",
     "gas-snapshot": "forge snapshot",
     "storage-snapshot": "./scripts/storage-snapshot.sh",

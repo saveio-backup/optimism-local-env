@@ -48,7 +48,7 @@
     "lint:fix": "yarn lerna run lint:fix --parallel",
     "postinstall": "patch-package",
     "ready": "yarn lint && yarn test",
-    "prepare": "husky install",
+    "prepare": "cd .. && husky install deployer/.husky",
     "release": "yarn build && yarn changeset publish",
     "update:yarn": "yarn set version 1.x"
   },
