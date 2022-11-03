@@ -10,7 +10,7 @@ const config = {
   networks: {
     hardhat: {
       gasPrice,
-      initialBaseFeePerGas: 0,
+      initialBaseFeePerGas: 0
     },
   },
   analytics: { enabled: false },

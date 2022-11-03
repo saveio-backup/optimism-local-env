@@ -2,7 +2,7 @@
   "name": "@eth-optimism/hardhat-node",
   "version": "0.2.0",
   "scripts": {
-    "start": "hardhat node --network hardhat"
+    "start": "hardhat node --network hardhat --port 9545"
   },
   "license": "MIT",
   "dependencies": {
