@@ -1,18 +1,18 @@
 
-## Optimism local env
+# Optimism local env
 
 Refs [/saveio/optimism](http://10.0.1.228:3000/saveio/optimism)
 
 ## Usage
 
-### l1_chain
+1. l1_chain
 
 ```
 yarn install && yarn cache clean
 yarn start
 ```
 
-## deployer
+2. deployer
 
 ```
 yarn install --frozen-lockfile && yarn cache clean
@@ -30,7 +30,7 @@ export CONTRACTS_TARGET_NETWORK=local
 ./deployer.sh 
 ```
 
-### l2geth
+3. l2geth
 
 ```
 export ETH1_HTTP=http://127.0.0.1:8545
