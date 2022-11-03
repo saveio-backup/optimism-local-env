@@ -5,14 +5,14 @@ Refs [/saveio/optimism](http://10.0.1.228:3000/saveio/optimism)
 
 ## Usage
 
-1. l1_chain
+- l1_chain
 
 ```
 yarn install && yarn cache clean
 yarn start
 ```
 
-2. deployer
+- deployer
 
 ```
 yarn install --frozen-lockfile && yarn cache clean
@@ -30,7 +30,7 @@ export CONTRACTS_TARGET_NETWORK=local
 ./deployer.sh 
 ```
 
-3. l2geth
+- l2geth
 
 ```
 export ETH1_HTTP=http://127.0.0.1:8545
