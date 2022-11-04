@@ -33,7 +33,15 @@ export CONTRACTS_TARGET_NETWORK=local
 - dtl
 
 ```
+cd packages/data-transport-layer
 
+export URL=http://127.0.0.1:8081/addresses.json
+export DATA_TRANSPORT_LAYER__L1_RPC_ENDPOINT=http://127.0.0.1:9545
+export DATA_TRANSPORT_LAYER__L2_RPC_ENDPOINT=http://127.0.0.1:8545
+export DATA_TRANSPORT_LAYER__SYNC_FROM_L2=true
+export DATA_TRANSPORT_LAYER__L2_CHAIN_ID=17
+
+./dtl.sh
 ```
 
 - l2geth
@@ -51,6 +59,6 @@ export ROLLUP_FEE_THRESHOLD_DOWN=0.9
 export ROLLUP_FEE_THRESHOLD_UP=1.1
 
 source geth.env
-
+./geth.sh
 ```
 

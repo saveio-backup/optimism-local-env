@@ -43,11 +43,21 @@ geth --verbosity="$VERBOSITY" "$@" init genesis.json
 
 # start the geth node
 echo "Starting Geth node"
-exec geth \
-  --verbosity="$VERBOSITY" \
-  --password ./password \
-  --allow-insecure-unlock \
-  --unlock $BLOCK_SIGNER_ADDRESS \
-  --mine \
-  --miner.etherbase $BLOCK_SIGNER_ADDRESS \
-  "$@"
+# exec geth \
+#   --verbosity="$VERBOSITY" \
+#   --password ./password \
+#   --dev
+#   --allow-insecure-unlock \
+#   --unlock $BLOCK_SIGNER_ADDRESS \
+#   --mine \
+#   --miner.etherbase $BLOCK_SIGNER_ADDRESS \
+#   "$@"
+
+geth \
+--datadir dev-chain \
+--dev --dev.period 0 --dev.gaslimit '9000000000000' \
+--http --http.api personal,web3,eth,net --http.corsdomain "remix.ethereum.org" \
+--ws --ws.origins="*" \
+--password password \
+--mine --miner.gaslimit '9000000000000' \
+--verbosity 3 
