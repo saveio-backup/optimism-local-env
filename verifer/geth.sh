@@ -46,9 +46,9 @@ echo "Starting Geth node"
 exec geth \
   --datadir data \
   --networkid 17 \
-  --port 30303 \
-  --authrpc.port 8551  \
-  --http --http.port 8545 --http.addr 0.0.0.0  \
+  --port 30304 \
+  --authrpc.port 8552  \
+  --http --http.port 8546 --http.addr 0.0.0.0  \
   --http.corsdomain '*'  --http.api personal,web3,eth,net \
   --ws --ws.origins="*"  \
   --password ./password \
@@ -56,4 +56,5 @@ exec geth \
   --unlock $BLOCK_SIGNER_ADDRESS \
   --mine \
   --miner.etherbase $BLOCK_SIGNER_ADDRESS \
+  --bootnodes enode://f1b40d8700ed082a62c9756d4890263713b9d4c599ef0c6cec2c0f1c88fbda9fb5c704297a1d3f955f633810f8ab24e73aa54a61c4e2dd8c532719527ba01e4e@127.0.0.1:30303 \
   "$@"
