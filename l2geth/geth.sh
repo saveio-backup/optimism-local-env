@@ -50,7 +50,7 @@ exec geth \
   --authrpc.port 8551  \
   --http --http.port 8545 --http.addr 0.0.0.0  \
   --http.corsdomain '*'  --http.api personal,web3,eth,net \
-  --ws --ws.origins="*"  \
+  --ws --ws.port 8546 --ws.origins="*"  \
   --password ./password \
   --allow-insecure-unlock \
   --unlock $BLOCK_SIGNER_ADDRESS \

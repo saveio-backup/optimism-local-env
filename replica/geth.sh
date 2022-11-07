@@ -46,11 +46,11 @@ echo "Starting Geth node"
 exec geth \
   --datadir data \
   --networkid 17 \
-  --port 31303 \
-  --authrpc.port 8651  \
-  --http --http.port 8645 --http.addr 0.0.0.0  \
+  --port 32303 \
+  --authrpc.port 8751  \
+  --http --http.port 8745 --http.addr 0.0.0.0  \
   --http.corsdomain '*'  --http.api personal,web3,eth,net \
-  --ws --ws.port 8646 --ws.origins="*"  \
+  --ws --ws.port 8746 --ws.origins="*"  \
   --password ./password \
   --allow-insecure-unlock \
   --unlock $BLOCK_SIGNER_ADDRESS \
