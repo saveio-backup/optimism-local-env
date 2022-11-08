@@ -56,5 +56,5 @@ exec geth \
   --unlock $BLOCK_SIGNER_ADDRESS \
   --mine \
   --miner.etherbase $BLOCK_SIGNER_ADDRESS \
-  --bootnodes enode://f1b40d8700ed082a62c9756d4890263713b9d4c599ef0c6cec2c0f1c88fbda9fb5c704297a1d3f955f633810f8ab24e73aa54a61c4e2dd8c532719527ba01e4e@127.0.0.1:30303 \
+  --bootnodes enode://388dc232b559fbd1fcbbfe45d0e8f9e741fe8a08c33b05f5b75df00c3dd78ce0e39ee8cb9a3c94d8a2f204255c47e9d4a51339fa45cae69772fdf636d98875de@127.0.0.1:30303 \
   "$@"
