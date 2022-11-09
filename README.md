@@ -12,22 +12,28 @@ yarn install && yarn cache clean
 yarn start
 ```
 
-- deployer
+- packages
 
 ```
 yarn install --frozen-lockfile && yarn cache clean
 yarn build
+```
 
+- deployer
+
+```
 cd packages/contracts
 
+yarn install --frozen-lockfile && yarn cache clean
+yarn build
+
 rm -rvf deployments/local/
-rm addresses.json
 
 export CONTRACTS_RPC_URL=http://127.0.0.1:9545
 export CONTRACTS_DEPLOYER_KEY=ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 export CONTRACTS_TARGET_NETWORK=local
 
-./deployer.sh 
+./deployer.sh
 ```
 
 - dtl
@@ -35,11 +41,17 @@ export CONTRACTS_TARGET_NETWORK=local
 ```
 cd packages/data-transport-layer
 
+yarn install --frozen-lockfile && yarn cache clean
+yarn build
+
 export URL=http://127.0.0.1:8081/addresses.json
 export DATA_TRANSPORT_LAYER__L1_RPC_ENDPOINT=http://127.0.0.1:9545
 export DATA_TRANSPORT_LAYER__L2_RPC_ENDPOINT=http://127.0.0.1:8545
 export DATA_TRANSPORT_LAYER__SYNC_FROM_L2=true
 export DATA_TRANSPORT_LAYER__L2_CHAIN_ID=17
+
+source dtl.env
+export $(cut -d= -f1 dtl.env)
 
 ./dtl.sh
 ```
@@ -58,12 +70,8 @@ export ROLLUP_ENFORCE_FEES=${ROLLUP_ENFORCE_FEES:-true}
 export ROLLUP_FEE_THRESHOLD_DOWN=0.9
 export ROLLUP_FEE_THRESHOLD_UP=1.1
 
-export ETH1_SYNC_SERVICE_ENABLE=true
-export ETH1_CONFIRMATION_DEPTH=0
-export ROLLUP_POLL_INTERVAL_FLAG=500ms
-export ROLLUP_ENABLE_L2_GAS_POLLING=true
-export TARGET_GAS_LIMIT=15000000
-export L2_BLOCK_GAS_LIMIT=15000000
+source geth.env
+export $(cut -d= -f1 geth.env)
 
 ./geth.sh
 ```
