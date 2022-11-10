@@ -15,6 +15,7 @@ yarn start
 - packages
 
 ```
+cd packages
 yarn install --frozen-lockfile && yarn cache clean
 yarn build
 ```
@@ -44,14 +45,14 @@ cd packages/data-transport-layer
 yarn install --frozen-lockfile && yarn cache clean
 yarn build
 
+source dtl.env
+export $(cut -d= -f1 dtl.env)
+
 export URL=http://127.0.0.1:8081/addresses.json
 export DATA_TRANSPORT_LAYER__L1_RPC_ENDPOINT=http://127.0.0.1:9545
 export DATA_TRANSPORT_LAYER__L2_RPC_ENDPOINT=http://127.0.0.1:8545
 export DATA_TRANSPORT_LAYER__SYNC_FROM_L2=true
 export DATA_TRANSPORT_LAYER__L2_CHAIN_ID=17
-
-source dtl.env
-export $(cut -d= -f1 dtl.env)
 
 ./dtl.sh
 ```
@@ -59,6 +60,9 @@ export $(cut -d= -f1 dtl.env)
 - l2geth
 
 ```
+source geth.env
+export $(cut -d= -f1 geth.env)
+
 export ETH1_HTTP=http://127.0.0.1:9545
 export ROLLUP_TIMESTAMP_REFRESH=5s
 export ROLLUP_STATE_DUMP_PATH=http://127.0.0.1:8081/state-dump.latest.json
@@ -69,9 +73,6 @@ export BLOCK_SIGNER_ADDRESS=0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
 export ROLLUP_ENFORCE_FEES=${ROLLUP_ENFORCE_FEES:-true}
 export ROLLUP_FEE_THRESHOLD_DOWN=0.9
 export ROLLUP_FEE_THRESHOLD_UP=1.1
-
-source geth.env
-export $(cut -d= -f1 geth.env)
 
 ./geth.sh
 ```
