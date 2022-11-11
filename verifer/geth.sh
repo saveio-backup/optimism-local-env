@@ -35,30 +35,19 @@ curl \
 echo "Importing private key"
 echo $BLOCK_SIGNER_KEY > key.prv
 echo "pwd" > password
-geth --datadir data account import --password ./password ./key.prv
+./geth account import --password ./password ./key.prv
 
 # initialize the geth node with the genesis file
 echo "Initializing Geth node"
-geth --datadir data --verbosity="$VERBOSITY" "$@" init genesis.json
+./geth --verbosity="$VERBOSITY" "$@" init genesis.json
 
 # start the geth node
 echo "Starting Geth node"
-exec geth \
-  --datadir data \
-  --networkid 17 \
-  --port 31303 \
-  --authrpc.port 8651  \
-  --http --http.port 8645 --http.addr 0.0.0.0  \
-  --http.corsdomain '*'  --http.api personal,web3,eth,net \
-  --ws --ws.port 8646 --ws.origins="*"  \
+exec ./geth \
+  --verbosity="$VERBOSITY" \
   --password ./password \
   --allow-insecure-unlock \
   --unlock $BLOCK_SIGNER_ADDRESS \
   --mine \
   --miner.etherbase $BLOCK_SIGNER_ADDRESS \
-  --gcmode=archive \
-  --ipcdisable=true \
-  --nodiscover=true \
   "$@"
-  
-#   --bootnodes enode://388dc232b559fbd1fcbbfe45d0e8f9e741fe8a08c33b05f5b75df00c3dd78ce0e39ee8cb9a3c94d8a2f204255c47e9d4a51339fa45cae69772fdf636d98875de@127.0.0.1:30303 \
