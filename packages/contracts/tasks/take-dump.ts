@@ -97,6 +97,16 @@ task('take-dump').setAction(async (args, hre) => {
       storage: {},
     }
 
+    dump['0x00000398232E2064F896018496b4b44b3D62751F'] = {
+      balance: '1000000000000000000000000',
+      storage: {},
+    }
+
+    dump['0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'] = {
+      balance: '1000000000000000000000000',
+      storage: {},
+    }
+
     if (predeployName === 'OVM_L1BlockNumber') {
       // OVM_L1BlockNumber is a special case where we just inject a specific bytecode string.
       // We do this because it uses the custom L1BLOCKNUMBER opcode (0x4B) which cannot be
