@@ -35,7 +35,7 @@ curl \
 echo "Importing private key"
 echo $BLOCK_SIGNER_KEY > key.prv
 echo "pwd" > password
-./geth account import --password ./password ./key.prv
+./geth account import --password ./password ./key.prv 
 
 # initialize the geth node with the genesis file
 echo "Initializing Geth node"

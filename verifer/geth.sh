@@ -44,6 +44,7 @@ echo "Initializing Geth node"
 # start the geth node
 echo "Starting Geth node"
 exec ./geth \
+  --port 30304 \
   --verbosity="$VERBOSITY" \
   --password ./password \
   --allow-insecure-unlock \
